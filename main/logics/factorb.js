@@ -87,11 +87,10 @@ angular.module('factorb.controllers').controller('controllers.MainController',
 
                          if(typeof(data.fkOut)=='undefined'){
                               console.log('OK');
-                              // TODO: 
+                              $window.location = '/#/success';
                          }else{
                               console.log('Not OK: ' + data.fkOut);
-                              // TODO: 
-
+                              $window.location = '/#/failure';
                          }
                     });
                };

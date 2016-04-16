@@ -42,12 +42,20 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                     }
                }
           })
-          // user clicked on a document
-          .state('docs', {
-               url: '/doc/:hash',
+          .state('success', {
+               url: '/success',
                views: {
                     '': {
-                         templateUrl: 'main/doc.html',
+                         templateUrl: 'main/success.html',
+                         controller: 'controllers.DocController'
+                    },
+               }
+          })
+          .state('failure', {
+               url: '/failure',
+               views: {
+                    '': {
+                         templateUrl: 'main/failure.html',
                          controller: 'controllers.DocController'
                     },
                }
