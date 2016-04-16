@@ -84,6 +84,15 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          console.log('RET ERR: ', err);
                          console.log('RET STATUS: ',status);
                          console.log('RET DATA: ',data);
+
+                         if(typeof(data.fkOut)=='undefined'){
+                              console.log('OK');
+                              // TODO: 
+                         }else{
+                              console.log('Not OK: ' + data.fkOut);
+                              // TODO: 
+
+                         }
                     });
                };
 
