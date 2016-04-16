@@ -1,5 +1,5 @@
 
-angular.module('chaincloud.controllers').controller('controllers.MainController',
+angular.module('factorb.controllers').controller('controllers.MainController',
     [
         '$scope',
         '$rootScope',
@@ -22,33 +22,6 @@ angular.module('chaincloud.controllers').controller('controllers.MainController'
                     $scope.showSpinner = false;
                     $scope.errMsg = '';
                     $scope.txLink = '';
-
-                    // read from cookies
-                    $scope.token = $cookies.Token;
-                    $scope.shortId = $cookies.ShortId;
-
-                    $scope.documents = [];
-
-                    // TODO: debug
-                    /*
-                    var newDoc = {
-                         blockChainType: 2,
-                         docHash: '1231231231',
-                         txHash: '41242342',
-                         docName: 'picture1.png',
-                         docSize: 123123
-                    };
-                    $scope.documents.push(newDoc);
-
-                    var newDoc2 = {
-                         blockChainType: 2,
-                         docHash: '1231231231',
-                         txHash: '41242342',
-                         docName: 'picture1.png',
-                         docSize: 123123
-                    };
-                    $scope.documents.push(newDoc2);
-                    */
                };
 
                $scope.loadDocs = function(){
@@ -188,16 +161,7 @@ angular.module('chaincloud.controllers').controller('controllers.MainController'
                //////// START HERE:
                $scope.reset();
 
-               if(typeof($scope.token)==='undefined' || typeof($scope.shortId)==='undefined' || ($scope.token===null) || ($scope.shortId===null)){
-                    // move to login!
-                    console.log('Moving back to login...');
-
-                    $window.location = '#/login';
-                    return;
-               }
-
                console.log('MAIN controller loading...');
-               $scope.loadDocs();
        }
      ]
 );

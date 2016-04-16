@@ -1,12 +1,12 @@
 // не испоьзуется !!!
 
-angular.module('chaincloud.controllers',[]);
-angular.module('chaincloud.services',[]);
-angular.module('chaincloud.transformers',[]);
+angular.module('factorb.controllers',[]);
+angular.module('factorb.services',[]);
+angular.module('factorb.transformers',[]);
 
 //['angular-underscore']);
 
-angular.module('chaincloud',
+angular.module('factorb',
     [
         //'ui.bootstrap',
         'ui.utils',
@@ -21,83 +21,17 @@ angular.module('chaincloud',
         'chart.js',
         'ngFileUpload',
 
-        'chaincloud.controllers',
-        'chaincloud.services',
-        'chaincloud.transformers'
+        'factorb.controllers',
+        'factorb.services',
+        'factorb.transformers'
     ]
 );
 
-angular.module('chaincloud').config(function($stateProvider,$httpProvider,$parseProvider,$locationProvider,$urlRouterProvider) {
+angular.module('factorb').config(function($stateProvider,$httpProvider,$parseProvider,$locationProvider,$urlRouterProvider) {
     // angular-ui-router stuff:
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/main");
 
     $stateProvider
-          .state('registration', {
-               url: '/registration',
-               views: {
-                    '': {
-                         templateUrl: 'signer/registration.html',
-                         // same as above!!!
-                         controller: 'controllers.LandingController'
-                    },
-               }
-          })
-          // Use received 'verification' email and clicked on 'Verify' button
-          .state('validation', {
-               url: '/validation',
-               views: {
-                    '': {
-                         templateUrl: 'signer/validation.html',
-                         // same as above!!!
-                         controller: 'controllers.LandingController'
-                    },
-               }
-          })
-          .state('login', {
-               url: '/login',
-               views: {
-                    '': {
-                         templateUrl: 'signer/login.html',
-                         // same as above!!!
-                         controller: 'controllers.LandingController'
-                    }
-               }
-          })
-          .state('agreement', {
-               url: '/agreement',
-               views: {
-                    '': {
-                         templateUrl: 'signer/agreement.html',
-                         // same as above!!!
-                         controller: 'controllers.LandingController'
-                    }
-               }
-          })
-
-          /*
-          // user forgot his password and wants to 'Reset it'
-          .state('recover', {
-               url: '/recover',
-               views: {
-                    '': {
-                         templateUrl: 'signer/recover.html',
-                         controller: 'controllers.RecoverController'
-                    },
-               }
-          })
-          // User received 'reset your password' email and clicked on 'OK' button
-          .state('on_recover', {
-               url: '/on_recover',
-               views: {
-                    '': {
-                         templateUrl: 'signer/on_recover.html',
-                         // same as above!!!
-                         controller: 'controllers.RecoverController'
-                    },
-               }
-          })
-          */
-
           // when user is logged in -> show him main 'Admin page'
           .state('main', {
                url: '/main',
@@ -120,10 +54,10 @@ angular.module('chaincloud').config(function($stateProvider,$httpProvider,$parse
           });
 
     // Add Bearer Token 
-    $httpProvider.interceptors.push('authInterceptor');
+    //$httpProvider.interceptors.push('authInterceptor');
 });
 
-angular.module('chaincloud').run(function($rootScope,$location,$window) {
+angular.module('factorb').run(function($rootScope,$location,$window) {
 
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;

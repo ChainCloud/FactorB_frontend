@@ -1,5 +1,5 @@
 
-angular.module('chaincloud.services').factory('services.Helpers',[
+angular.module('factorb.services').factory('services.Helpers',[
     '$q',
     '$window',
     '$cookies',
@@ -22,7 +22,7 @@ angular.module('chaincloud.services').factory('services.Helpers',[
             },
 
             getServerUrl: function(){
-                 var serverUrl = 'https://api.chain.cloud:8080'; 
+                 var serverUrl = 'https://52.31.141.39:8080'; 
                  return serverUrl;
             },
 

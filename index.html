@@ -6,144 +6,55 @@
 -->
 <html>
 	<head>
-		<title>ChainCloud - blockchain for life</title>
+		<title>FactorB</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="apple-itunes-app" content="app-id=1081031434">
 
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+         <!--
+         <script src="assets/js/jquery.min.js"></script>
+         <script src="assets/js/jquery.dropotron.min.js"></script>
+         <script src="assets/js/jquery.scrollgress.min.js"></script>
+         <script src="assets/js/skel.min.js"></script>
+         <script src="assets/js/util.js"></script>
+         <script src="assets/js/main.js"></script>
+         -->
+
+         <!-- Angular / bower stuff-->
+         <script src="bower_components/angular/angular.js"></script>
+         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+         <script src="bower_components/angular-animate/angular-animate.js"></script>
+         <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+         <script src="bower_components/ngDialog/js/ngDialog.js"></script>
+
+         <script src="bower_components/Chart.js/Chart.min.js"></script>
+         <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+
+         <script src="bower_components/bowser/bowser.min.js"></script>
+         <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+         <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+         <!--<script src="bower_components/angular-crypto/angular-crypto.min.js"></script>-->
+         <script src="assets/sha256.js"></script>
+
+         <script src="main/logics/setup.js"></script>
+         <script src="main/logics/helpers.js"></script>
+         <script src="main/logics/services.js"></script>
+         <script src="main/logics/factorb.js"></script>
+         <!--
+         <script src="main/logics/doc.js"></script>
+         -->
 	</head>
-	<body class="landing">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<nav id="nav">
-						<ul>
-							<li><a href="https://github.com/ChainCloud" target="_blank">Github</a></li>
-							<li><a href="/api" target="_blank">API</a></li>
-							<li><a href="mailto:hello@chain.cloud" class="button">Contact Us</a></li>
-						</ul>
-					</nav>
-				</header>
+     <body ng-app="chaincloud" class="landing">
+          <div id="page-wrapper" ui-view="">
 
-			<!-- Banner -->
-				<section id="banner">
-					<h2>Chain.Cloud</h2>
-                         <br>
-                         <p>Custom Blockchain (DLT) technology products<br/>and consulting services</p>
-                         
-                         <h3 style="color: #e89980; font-weight: 800;">Our Products</h3>
-					<ul class="actions">
-						<li>
-                                   <a href="https://itunes.apple.com/us/app/blockchain-signer/id1081031434" class="button special" target="_blank">
-                                        <i class="fa fa-key"></i>
-                                        <span>&zwnj;</span>
-                                        <span>1. Signer App</span>
-                                   </a>
-                              </li>
-
-						<li>
-                                   <a href="/signer.html#/main" class="button special">
-                                        <i class="fa fa-chain"></i>
-                                        <span>&zwnj;</span>
-                                        <span>2. Signer WebApp</span>
-                                   </a>
-                              </li>
-					</ul>
-				</section>
-
-			<!-- Main -->
-				<section id="main" class="container">
-
-					<section class="box special">
-						<header class="major">
-							<h2>A blockchain is a distributed database shared by all nodes</h2>
-
-                                   <p>Traditionally data and information are shared through a ‘hub and spoke’ database model. A single institution, such as a bank, acts as the hub and disseminates information to us individually. But with <a href="">BlockChain</a> there is no ‘bank’ or central institution. Rather the account value is stored across the distributed network of thousands, or more, computers.</p>
-
-                                   <p>Blockchain technology has the power to create a more <a href="">secure</a>, fairer, more efficient system because there is no middle man.</p>
-                                  
-                              </header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-					</section>
-
-					<section class="box special features">
-                              <h2>Our services</h2>
-						<div class="features-row">
-							<section>
-								<span class="icon major fa-link accent2"></span>
-								<h3>Blockchain integration</h3>
-								<p>We work in partnership with our clients, advising them how to use different IT technologies in order to meet their business objectives or overcome problems.</p>
-							</section>
-
-							<section>
-								<span class="icon major fa-book accent3"></span>
-								<h3>Staff training</h3>
-								<p>Blockchain is not the only one technology we train. We can also train your staff BigData and MachineLearning techonologies that complement it.</p>
-							</section>
-						</div>
-
-						<div class="features-row">
-							<section>
-								<span class="icon major fa-cloud accent4"></span>
-								<h3>Private Blockchain</h3>
-								<p>In today’s rapidly evolving technological environment, a trusted advisor – one who not only provides relevant insights, but delivers a combination of strategic vision, proven expertise and practical experience – can enhance the value of your business with technology.</p>
-							</section>
-
-							<section>
-								<span class="icon major fa-lock accent5"></span>
-								<h3>Security and Vulnerability testing</h3>
-								<p>Protecting sensitive data and systems helps organizations avoid costly breaches, loss of intellectual property, business disruption and reputation damage. We’re proud to offer testing expertise to help our clients with their controls to ensure such protection are operating properly.</p>
-							</section>
-						</div>
-					</section>
-				</section>
-
-                    <!-- CTA -->
-				<section id="cta">
-					<h2>Newsletter</h2>
-                         <form action="//chain-cloud.us12.list-manage.com/subscribe/post?u=3d2e7ae551c571338b7a3e4ba&amp;id=cf38cebffb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-						<div class="row uniform 50%">
-							<div class="8u 12u(mobilep)">
-								<input type="email" name="EMAIL" id="email" placeholder="E-mail Address" />
-							</div>
-
-                                   <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                        <input type="text" name="b_3d2e7ae551c571338b7a3e4ba_cf38cebffb" tabindex="-1" value="">
-                                   </div>
-
-							<div class="4u 12u(mobilep)">
-								<input type="submit" value="Subscribe" name="subscribe" class="fit" />
-							</div>
-						</div>
-					</form>
-				</section>
-
-                    <!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Chain.Cloud. All rights reserved.</li>
-                              <!--<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>-->
-					</ul>
-				</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollgress.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+          </div>
+     </body>
 </html>

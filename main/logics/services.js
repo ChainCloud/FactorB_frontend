@@ -1,5 +1,5 @@
 // This service is used as a HTTP/HTTPS interceptor to inject Auth header
-angular.module('chaincloud.services').factory('authInterceptor',[
+angular.module('factorb.services').factory('authInterceptor',[
     '$q',
     '$cookies',
 
@@ -24,7 +24,7 @@ angular.module('chaincloud.services').factory('authInterceptor',[
 );
 
 // these methods require no authentication
-angular.module('chaincloud.services').factory('services.Api',[
+angular.module('factorb.services').factory('services.Api',[
     '$q',
     '$http',
     '$cookies',
