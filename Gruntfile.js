@@ -339,7 +339,7 @@ module.exports = function (grunt) {
       },
 
       deployToServer: {
-        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/digital_ocean.pem" --progress dist/* ubuntu@chain.cloud:/var/www/html/',
+        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/hackaton.pem" --progress dist/* ubuntu@52.31.141.39:/var/www/html/',
         options:
         {
              failOnError: true,
