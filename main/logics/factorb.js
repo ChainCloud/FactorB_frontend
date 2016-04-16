@@ -74,8 +74,12 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     var date = $scope.date;
                     var amount = $scope.amount; 
 
-                    console.log('Adding doc to blockchain!');
-                    api.addDoc(inn1,inn2,date,amount,function(err,status,data){
+                    var fullStr = '' + inn1 + inn2 + date + amount;
+                    var hash = SHA256.hash(fullStr);
+                    var fkName = $scope.fkName;
+
+                    console.log('Adding doc to blockchain!: ' + hash);
+                    api.addDoc(hash,fkName,function(err,status,data){
                          // TODO: check return
                          console.log('RET ERR: ', err);
                          console.log('RET STATUS: ',status);

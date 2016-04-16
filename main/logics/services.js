@@ -32,16 +32,14 @@ angular.module('factorb.services').factory('services.Api',[
 
     function ($q, $http, $cookies, helpers ){
         return {
-            addDoc: function(inn1,inn2,date,amount,cb){
+            addDoc: function(hash,fkName,cb){
                 var serverUrl = helpers.getServerUrl();
                 var shortId = $cookies.ShortId;
                 var url = serverUrl + '/docs/v1';
 
                 var dataIn = {
-                    inn1: inn1,
-                    inn2: inn2,
-                    date: date,
-                    amount: amount
+                    hash: hash,
+                    fkName: fkName
                 };
 
                 $http({

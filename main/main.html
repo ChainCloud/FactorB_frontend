@@ -1,5 +1,3 @@
-<ng-include src="'signer/header.html'"></ng-include>
-
 <section id="cta">
      <h1>factor <strong>B</strong></h1>
      <h2>Прозрачный Факторинг для каждого!</h2>
@@ -14,12 +12,19 @@
                <div id="input-div" class="12u 12u(mobilep)">
                     <input 
                          type="text" 
+                         name="fk1" 
+                         id="fk1" 
+                         ng-model="fkName" 
+                         placeholder="Название Факторинговой Компании" 
+                         autofocus/>
+
+                    <input 
+                         type="text" 
                          name="inn1" 
                          id="inn1" 
                          ng-model="inn1" 
                          placeholder="Инн1 (8/10 цифр)" 
-                         valid-number
-                         autofocus/>
+                         valid-number/>
 
                     <input 
                          type="text" 
@@ -45,40 +50,26 @@
                          valid-number/>
                </div>
 
+               <!-- TODO: 
+                    ng-disabled="!isValidInn(inn1) || !isValidInn(inn2) || !date.length || !amount.length" 
+               -->
                <div class="12u 12u(mobilep)">
                     <button 
                          type="submit" 
                          class="button fit"
                          ng-click="onAdd()"
-                         ng-disabled="!isValidInn(inn1) || !isValidInn(inn2) || !date.length || !amount.length" 
                          >
 
                          <span>
                               <i class="fa fa-link"></i>
                          </span>
-                         <span>Импорт</span>
+                         <span>Добавить</span>
                     </button>
                </div>
                <p>Данные никогда не передаются на нашу сторону. Мы получаем и храним только <a href="https://ru.wikipedia.org/wiki/Цепочка_блоков_транзакций">ХЭШ</a></p>
           </div>
      </form>
-
-     <!--
-     <h1>Documents</h1>
-     <h2 ng-if="!documents.length">There are still no documents. Try adding one...</h2>
-
-     <div class="docs">
-          <div ng-repeat="d in documents" class="row uniform 100% document">
-               <p>
-                    <span class="doc-index">{{$index + 1}}.  </span>
-                    <a href="#/doc/{{d.docHash}}" class="doc-link">
-                         <span>{{d.docName}}</span>
-                    </a>
-               </p>
-          </div>
-     </div>
-     -->
 </section>
 
-<ng-include src="'signer/footer.html'"></ng-include>
+<ng-include src="'main/footer.html'"></ng-include>
 
