@@ -53,6 +53,8 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     $scope.showSpinner = false;
                     $scope.errMsg = '';
                     $scope.txLink = '';
+
+                    $scope.hash = ''
                };
 
                $scope.isValidInn = function(inn){
@@ -69,17 +71,12 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     // TODO: 1 - validate params
 
                     // 2 - call API 
-                    var inn1 = $scope.inn1;
-                    var inn2 = $scope.inn2;
-                    var date = $scope.date;
-                    var amount = $scope.amount; 
+                    $scope.calcHash();
 
-                    var fullStr = '' + inn1 + inn2 + date + amount;
-                    var hash = SHA256.hash(fullStr);
                     var fkName = $scope.fkName;
 
-                    console.log('Adding doc to blockchain!: ' + hash);
-                    api.addDoc(hash,fkName,function(err,status,data){
+                    console.log('Adding doc to blockchain!: ' + $scope.hash);
+                    api.addDoc($scope.hash,fkName,function(err,status,data){
                          // TODO: check return
                          console.log('RET ERR: ', err);
                          console.log('RET STATUS: ',status);
@@ -93,6 +90,21 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               $window.location = '/#/failure';
                          }
                     });
+               };
+
+               $scope.calcHash = function(){
+                    var inn1 = $scope.inn1;
+                    var inn2 = $scope.inn2;
+                    var date = $scope.date;
+                    var amount = $scope.amount; 
+
+                    var fullStr = '' + inn1 + inn2 + date + amount;
+                    $scope.hash = SHA256.hash(fullStr);
+               };
+
+               $scope.onChange = function(){
+                    // recalculate hash if user input has changed
+                    $scope.calcHash();
                };
 
                /////////////////////////////////////////
