@@ -85,8 +85,7 @@ module.exports = function (grunt) {
           {src: ['package.json'], dest: 'dist/version'},
           {src: ['assets/**'], dest: 'dist/'},
           {src: ['images/**'], dest: 'dist/'},
-          {src: ['signer/**'], dest: 'dist/'},
-          {src: ['explorer/**'], dest: 'dist/'},
+          {src: ['main/**'], dest: 'dist/'},
           {src: ['api/**'], dest: 'dist/'},
 
           {src: ['bower_components/**'], dest: 'dist/'},
