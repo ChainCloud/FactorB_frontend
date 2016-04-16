@@ -55,137 +55,32 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     $scope.txLink = '';
                };
 
-               $scope.loadDocs = function(){
-                    $scope.showSpinner = true;
-
-                    api.getAllDocs(function(err,statusCode,data){
-                         $scope.showSpinner = false;
-
-                         if(!helpers.processError(null,statusCode,'Getting objects')){
-                              $scope.errMsg = 'Error...';
-                              return;
-                         }
-
-                         console.log('GET DOCS RESULT: ',data);
-                         $scope.documents = data.docs.slice(0);
-                    });
-               };
-
-               $scope.onVerify = function(files){
-                    console.log('On Verify clicked');
-
-                    $scope.errMsg = '';
-                    $scope.txLink = '';
-
-                    if(files && files.length) {
-                         var file = files[0];
-
-                         var fileReader = new $window.FileReader();
-
-                         fileReader.onload = function(e) {
-                              var data = fileReader.result;
-                              var array = new Int8Array(data);
-                              
-                              // Calculate HASH
-                              var hexString = SHA256.hash(array);
-
-                              api.getDoc(hexString,function(err,status,data){
-                                   $scope.onVerifyComplete(err,status,data);
-                              });
-                         };
-
-                         fileReader.onerror = function () {
-                              console.log('onerror');
-
-                              $scope.errMsg = 'Can not Verify. Please contact support';
-                              $scope.showSpinner = false;
-                         };
-
-                         $scope.showSpinner = true;
-                         fileReader.readAsArrayBuffer(file);
-                    }else{
-                         $scope.errMsg = 'Bad filename';
+               $scope.isValidInn = function(inn){
+                    if(!inn){
+                         return false;
                     }
-               };
-
-               $scope.onVerifyComplete = function(err,statusCode,data){
-                    if(!helpers.processError(null,statusCode,'Verify document')){
-                         $scope.errMsg = 'Error...';
-                         return;
+                    if(inn.length==8 || inn.length==10){
+                         return true;
                     }
-                   
-                    $scope.showSpinner = false;
-
-                    console.log('VERIFY STATUS: ' + statusCode);
-                    console.log('VERIFY RESULT: ',data);
-
-                    if(statusCode!==200){
-                         $scope.errMsg = 'Document is NOT IN BLOCKCHAIN.';
-                         return;
-                    }
-
-                    if(data.txHash){
-                         // move to TX
-                         $window.location = '#/doc/' + data.docHash;
-                    }
+                    return false;
                };
 
                $scope.onAdd = function(files){
-                    $scope.errMsg = '';
-                    $scope.txLink = '';
+                    // TODO: 1 - validate params
 
-                    if(files && files.length) {
-                         var file = files[0];
+                    // 2 - call API 
+                    var inn1 = $scope.inn1;
+                    var inn2 = $scope.inn2;
+                    var date = $scope.date;
+                    var amount = $scope.amount; 
 
-                         var fileReader = new $window.FileReader();
-
-                         fileReader.onload = function(e) {
-                              //console.log('onload');
-                              //console.log(e);
-
-                              var data = fileReader.result;
-                              var array = new Int8Array(data);
-                              
-                              // Calculate HASH
-                              var hexString = SHA256.hash(array);
-                              var fileDate = '';  // TODO
-
-                              api.addDocument(file.name,file.size,fileDate,hexString,function(err,status,data){
-                                   $scope.onAddDocumentComplete(err,status,data);
-                              });
-                         };
-
-                         fileReader.onerror = function () {
-                              console.log('onerror');
-
-                              $scope.errMsg = 'Can not Add Document to BlockChain. Please contact support';
-                              $scope.showSpinner = false;
-                         };
-
-                         $scope.showSpinner = true;
-                         fileReader.readAsArrayBuffer(file);
-                    }else{
-                         $scope.errMsg = 'Bad filename';
-                    }
-               };
-
-               $scope.onAddDocumentComplete = function(err,status,data){
-                    if(!helpers.processError(null,status,'Add document')){
-                         $scope.errMsg = 'Error...';
-                         return;
-                    }
-                   
-                    $scope.showSpinner = false;
-
-                    if(data.txHash && data.txHash.length){
-                         $scope.errMsg = 'Sucess!';
-                         $scope.txLink = data.infoLink;
-                    }else{
-                         $scope.errMsg = 'Error. Can not add document to transaction';
-                    }
-
-                    // reload list
-                    $scope.loadDocs();
+                    console.log('Adding doc to blockchain!');
+                    api.addDoc(inn1,inn2,date,amount,function(err,status,data){
+                         // TODO: check return
+                         console.log('RET ERR: ', err);
+                         console.log('RET STATUS: ',status);
+                         console.log('RET DATA: ',data);
+                    });
                };
 
                /////////////////////////////////////////

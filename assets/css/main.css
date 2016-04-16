@@ -3321,7 +3321,7 @@
 
                color: #000;
 			/*background: rgba(255, 255, 255, 0.15);*/
-               border: solid 2px #fff;
+               border: solid 3px #fff;
 		}
 
 			#cta input[type="text"]:focus,
@@ -3330,7 +3330,7 @@
 			#cta select:focus,
 			#cta textarea:focus {
 				box-shadow: inset 0 0 0 2px #fff;
-                    border: solid 2px #ff0000;
+                    border: solid 3px rgb(232, 153, 128);
 			}
 
 		#cta ::-webkit-input-placeholder {

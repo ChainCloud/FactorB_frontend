@@ -31,7 +31,7 @@
 
                     <input 
                          type="text" 
-                         name="inn2" 
+                         name="date1" 
                          id="date1" 
                          ng-model="date" 
                          placeholder="Дата"/>
@@ -46,11 +46,12 @@
                </div>
 
                <div class="12u 12u(mobilep)">
-                    <button type="submit" class="button fit" 
-                         ngf-select 
-                         ngf-change="onAdd($files)" 
-                         ngf-multiple="false" 
-                         ngf-accept="'*/*'">
+                    <button 
+                         type="submit" 
+                         class="button fit"
+                         ng-click="onAdd()"
+                         ng-disabled="!isValidInn(inn1) || !isValidInn(inn2) || !date.length || !amount.length" 
+                         >
 
                          <span>
                               <i class="fa fa-link"></i>
@@ -58,7 +59,7 @@
                          <span>Импорт</span>
                     </button>
                </div>
-               <p>Данные никогда не передаются на нашу сторону. Мы получаем и храним только ХЭШ</p>
+               <p>Данные никогда не передаются на нашу сторону. Мы получаем и храним только <a href="https://ru.wikipedia.org/wiki/Цепочка_блоков_транзакций">ХЭШ</a></p>
           </div>
      </form>
 
