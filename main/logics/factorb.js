@@ -86,10 +86,10 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               console.log('OK');
 
                               var l = encodeURIComponent(data.link);
-                              $window.location = '/#/success?link=' + l;
+                              $window.open('/#/success?link=' + l,'_blank');
                          }else{
                               console.log('Not OK: ' + data.fkOut);
-                              $window.location = '/#/failure';
+                              $window.open('/#/failure','_blank')
                          }
                     });
                };
