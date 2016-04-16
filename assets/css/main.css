@@ -1893,7 +1893,7 @@
      }
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #646464;
+		color: #0B8ED8;
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 0.5em 0;
@@ -1906,8 +1906,8 @@
 		}
 
 	h1 {
-		font-size: 3.0em;
-		line-height: 2.25em;
+		font-size: 5.0em;
+		line-height: 1.0em;
 		letter-spacing: -0.035em;
 	}
 
@@ -2145,6 +2145,7 @@
 	input[type="email"],
 	select {
 		height: 3em;
+          margin-bottom: 10px;
 	}
 
 	textarea {
@@ -3243,11 +3244,18 @@
 /* CTA */
 
 	#cta {
-		background: #e89980;
+		/*background: #e89980;*/
+		background: #471F66;
 		color: #f9e5df;
 		padding: 3.5em 0 4em 0;
 		text-align: center;
 	}
+
+     div#input-div{
+          padding-bottom: 10px;
+          padding-top: 0px;
+     }
+
 
 		#cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
 			color: inherit;
@@ -3293,7 +3301,8 @@
 		#cta .button {
 			box-shadow: none;
 			background: #fff;
-			color: #e89980;
+			/*color: #e89980;*/
+			color: #AB93BE;
 		}
 
 		.button {
@@ -3307,9 +3316,12 @@
 		#cta input[type="email"],
 		#cta select,
 		#cta textarea {
-			color: #ffffff;
-			background: rgba(255, 255, 255, 0.15);
-			border: 0;
+			/*color: rgb(202,203,205);*/
+			font-size: 1.25em;
+
+               color: #000;
+			/*background: rgba(255, 255, 255, 0.15);*/
+               border: solid 2px #fff;
 		}
 
 			#cta input[type="text"]:focus,
@@ -3318,30 +3330,36 @@
 			#cta select:focus,
 			#cta textarea:focus {
 				box-shadow: inset 0 0 0 2px #fff;
+                    border: solid 2px #ff0000;
 			}
 
 		#cta ::-webkit-input-placeholder {
-               color: #646464 !important;
+			/*font-size: 0.75em;*/
+               /*color: #646464 !important;
 			/*color: rgba(255, 255, 255, 0.75) !important;*/
 		}
 
 		#cta :-moz-placeholder {
-               color: #646464 !important;
+			/*font-size: 0.75em;*/
+               /*color: #646464 !important;*/
 			/*color: rgba(255, 255, 255, 0.75) !important;*/
 		}
 
 		#cta ::-moz-placeholder {
-               color: #646464 !important;
+			/*font-size: 0.75em;*/
+               /*color: #646464 !important;*/
 			/*color: rgba(255, 255, 255, 0.75) !important;*/
 		}
 
 		#cta :-ms-input-placeholder {
-               color: #646464 !important;
+			/*font-size: 0.75em;*/
+               /*color: #646464 !important;*/
 			/*color: rgba(255, 255, 255, 0.75) !important;*/
 		}
 
 		#cta .formerize-placeholder {
-               color: #646464 !important;
+			/*font-size: 0.75em;*/
+               /*color: #646464 !important;*/
 			/*color: rgba(255, 255, 255, 0.75) !important;*/
 		}
 

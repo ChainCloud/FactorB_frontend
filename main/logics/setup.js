@@ -37,7 +37,7 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                url: '/main',
                views: {
                     '': {
-                         templateUrl: 'signer/main.html',
+                         templateUrl: 'main/main.html',
                          controller: 'controllers.MainController'
                     }
                }
@@ -47,7 +47,7 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                url: '/doc/:hash',
                views: {
                     '': {
-                         templateUrl: 'signer/doc.html',
+                         templateUrl: 'main/doc.html',
                          controller: 'controllers.DocController'
                     },
                }

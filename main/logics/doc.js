@@ -1,5 +1,5 @@
 
-angular.module('chaincloud.controllers').controller('controllers.DocController',
+angular.module('factorb.controllers').controller('controllers.DocController',
     [
         '$scope',
         '$rootScope',
