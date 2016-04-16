@@ -84,7 +84,9 @@ angular.module('factorb.controllers').controller('controllers.MainController',
 
                          if(typeof(data.fkOut)=='undefined'){
                               console.log('OK');
-                              $window.location = '/#/success';
+
+                              var l = encodeURIComponent(data.link);
+                              $window.location = '/#/success?link=' + l;
                          }else{
                               console.log('Not OK: ' + data.fkOut);
                               $window.location = '/#/failure';

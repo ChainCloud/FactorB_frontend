@@ -47,7 +47,7 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                views: {
                     '': {
                          templateUrl: 'main/success.html',
-                         controller: 'controllers.DocController'
+                         controller: 'controllers.SuccessController'
                     },
                }
           })
@@ -56,7 +56,7 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                views: {
                     '': {
                          templateUrl: 'main/failure.html',
-                         controller: 'controllers.DocController'
+                         controller: 'controllers.MainController'
                     },
                }
           });
