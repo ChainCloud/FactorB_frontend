@@ -1,0 +1,57 @@
+<ng-include src="'signer/header.html'"></ng-include>
+
+<section id="cta">
+     <h1>
+          <a href="#/main">Chain.Cloud SIGNER</a>
+     </h1>
+
+     <p ng-if="errMsg.length" class="err-msg">{{errMsg}}</p>
+     <p>
+          <a ng-if="txLink.length" href="{{txLink}}" class="tx-info-link" target="_blank">Transaction info</a>
+     </p>
+
+     <form>
+          <div class="row uniform 50%">
+               <div class="12u 12u(mobilep)">
+                    <button type="submit" class="button fit" 
+                         ngf-select 
+                         ngf-change="onAdd($files)" 
+                         ngf-multiple="false" 
+                         ngf-accept="'*/*'">
+
+                         <span>
+                              <i class="fa fa-link"></i>
+                         </span>
+                         <span>Add Document to BlockChain</span>
+                    </button>
+
+                    <button type="submit" class="button fit" 
+                         ngf-select 
+                         ngf-change="onVerify($files)" 
+                         ngf-multiple="false" 
+                         ngf-accept="'*/*'">
+
+                         <span>Verify</span>
+                    </button>
+               </div>
+               <p>The document is never transmitted to our server. We calculate document hash on your side.</p>
+          </div>
+     </form>
+
+     <h1>Documents</h1>
+     <h2 ng-if="!documents.length">There are still no documents. Try adding one...</h2>
+
+     <div class="docs">
+          <div ng-repeat="d in documents" class="row uniform 100% document">
+               <p>
+                    <span class="doc-index">{{$index + 1}}.  </span>
+                    <a href="#/doc/{{d.docHash}}" class="doc-link">
+                         <span>{{d.docName}}</span>
+                    </a>
+               </p>
+          </div>
+     </div>
+</section>
+
+<ng-include src="'signer/footer.html'"></ng-include>
+

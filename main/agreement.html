@@ -1,0 +1,14 @@
+<ng-include src="'signer/header.html'"></ng-include>
+
+<section id="cta">
+     <h1>Chain.Cloud SIGNER</h1>
+     <h2>Agreement:</h2>
+     
+     <div class="info-text">
+          <p></p>
+     </div>
+
+     <p ng-if="errMsg.length">{{errMsg}}</p>
+</section>
+
+<ng-include src="'signer/footer.html'"></ng-include>

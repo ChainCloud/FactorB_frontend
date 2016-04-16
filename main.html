@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ChainCloud - Signer Web App</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+         <!--
+         <script src="assets/js/jquery.min.js"></script>
+         <script src="assets/js/jquery.dropotron.min.js"></script>
+         <script src="assets/js/jquery.scrollgress.min.js"></script>
+         <script src="assets/js/skel.min.js"></script>
+         <script src="assets/js/util.js"></script>
+         <script src="assets/js/main.js"></script>
+         -->
+
+         <!-- Angular / bower stuff-->
+         <script src="bower_components/angular/angular.js"></script>
+         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+         <script src="bower_components/angular-animate/angular-animate.js"></script>
+         <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+         <script src="bower_components/ngDialog/js/ngDialog.js"></script>
+
+         <script src="bower_components/Chart.js/Chart.min.js"></script>
+         <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+
+         <script src="bower_components/bowser/bowser.min.js"></script>
+         <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+         <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+         <!--<script src="bower_components/angular-crypto/angular-crypto.min.js"></script>-->
+         <script src="assets/sha256.js"></script>
+
+         <script src="signer/logics/setup.js"></script>
+         <script src="signer/logics/helpers.js"></script>
+         <script src="signer/logics/services.js"></script>
+         <script src="signer/logics/signer.js"></script>
+         <script src="signer/logics/signer_main.js"></script>
+         <script src="signer/logics/doc.js"></script>
+	</head>
+
+     <body ng-app="chaincloud" class="landing">
+          <div id="page-wrapper" ui-view="">
+
+          </div>
+     </body>
+</html>

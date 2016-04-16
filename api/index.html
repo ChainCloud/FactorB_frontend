@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["shell","javascript"]);
+        });
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo4.png" />
+
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href="mailto:hello@chain.cloud">Get a Partner`s Password</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Chain.Cloud API!</p>
+
+<p>Our API endpoints are located here: <em>https://api.chain.cloud</em>.</p>
+
+<p>Please make sure you always work through HTTPS to avoid Man-in-the-middle attacks.</p>
+
+          <h1 id="authentication">Authentication</h1>
+
+<h2 id="get-auth-token">Get Auth Token</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">encodeUrl</span><span class="p">(</span><span class="s1">'your-email@mail.com'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://api.chain.cloud:8080/users/'</span> <span class="o">+</span> <span class="nx">email</span> <span class="o">+</span> <span class="s1">'/login/v1'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="na">pass</span><span class="p">:</span> <span class="s1">'12345'</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+
+<span class="nx">postData</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">statusCode</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">dataOut</span><span class="p">){</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">statusCode</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+
+     <span class="kd">var</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dataOut</span><span class="p">);</span>
+
+     <span class="c1">// Get token</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">token</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+     <span class="nx">done</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span>
+     -X POST -d <span class="s1">'{"pass": "12345"}'</span>
+     <span class="s2">"https://api.chain.cloud:8080/users/tony%40mail.com/login/v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123123131231"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"shortId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"800684244"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves Auth Token.
+To get Password - please <a href="mailto:hell@chain.cloud">contact us</a>.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.chain.cloud:8080/users/:EMAIL/login/v1</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EMAIL</td>
+<td>Your email</td>
+</tr>
+</tbody></table>
+
+<h3 id="body">Body</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass</td>
+<td>Your password</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember always to save Token and user ID! You will need them later.
+</aside>
+
+<aside class="warning">
+Token has 60 minutes expiration timeout. After that period you must get new one.
+</aside>
+
+          <h1 id="documents">Documents</h1>
+
+<h2 id="add-document-to-blockchain">Add document to BlockChain</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://api.chain.cloud:8080/auth/users/'</span> <span class="o">+</span> <span class="nx">userId</span> <span class="o">+</span> <span class="s1">'/docs/v1'</span><span class="p">;</span>
+
+<span class="c1">// your document sha256 calculated on your side</span>
+<span class="kd">var</span> <span class="nx">sha256</span> <span class="o">=</span> <span class="s1">'ce7a3e4c5d80cb633c94623b3b07aa1391d1a2186f3439fbe1184a0be440284f'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="na">hash</span><span class="p">:</span> <span class="nx">sha256</span><span class="p">,</span>
+     <span class="na">blockchainType</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+
+<span class="nx">postDataWithAuth</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">globalToken</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">statusCode</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">dataOut</span><span class="p">){</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">statusCode</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+
+     <span class="kd">var</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dataOut</span><span class="p">);</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'DOC created result: '</span><span class="p">,</span><span class="nx">parsed</span><span class="p">);</span>
+
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">txHash</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">infoLink</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+     <span class="nx">done</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span>
+     -H <span class="s2">"Authorization: Bearer YOUR-AUTH-TOKEN-HERE"</span>
+     -X POST -d <span class="s1">'{"hash": "12345", "blockchainType":"1"}'</span>
+     <span class="s2">"https://api.chain.cloud:8080/users/3456789/docs/v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2509e5b65ed362557fcf2104e89f3c2430ceecc6a3275556c1b966eb641fe092"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"infoLink"</span><span class="p">:</span><span class="s2">"https://live.blockcypher.com/btc/tx/2509e5b65ed362557fcf2104e89f3c2430ceecc6a3275556c1b966eb641fe092/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint adds document hash to BlockChain. It generates new Transaction.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.chain.cloud:8080/auth/users/:ID/docs/v1</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Must be set to &lsquo;application/json&rsquo;</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Must be set to &#39;Bearer YOUR-AUTH-TOKEN-HERE&rsquo;</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Your user ID, that is returned while Authenticating</td>
+</tr>
+</tbody></table>
+
+<h3 id="body">Body</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>hash</td>
+<td>SHA-256 hash of your document</td>
+</tr>
+<tr>
+<td>blockchainType</td>
+<td>BlockChain type. Must be set to 1 for BTC Main net</td>
+</tr>
+<tr>
+<td>docName</td>
+<td>(optional) document name</td>
+</tr>
+<tr>
+<td>docDate</td>
+<td>(optional) document date</td>
+</tr>
+<tr>
+<td>docSize</td>
+<td>(optional) document size</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-document-info">Get document info</h2>
+<pre class="highlight javascript"><code><span class="c1">// your document sha256 calculated on your side</span>
+<span class="kd">var</span> <span class="nx">sha256</span> <span class="o">=</span> <span class="s1">'ce7a3e4c5d80cb633c94623b3b07aa1391d1a2186f3439fbe1184a0be440284f'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://api.chain.cloud:8080/auth/users/'</span> <span class="o">+</span> <span class="nx">userId</span> <span class="o">+</span> <span class="s1">'/docs/'</span> <span class="o">+</span> <span class="nx">sha256</span> <span class="o">+</span> <span class="s1">'/v1'</span><span class="p">;</span>
+
+<span class="nx">getDataWithAuth</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">globalToken</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">statusCode</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">dataOut</span><span class="p">){</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">statusCode</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+
+     <span class="kd">var</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dataOut</span><span class="p">);</span>
+
+     <span class="c1">// Check doc info:</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">confirms</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">block_index</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+     <span class="nx">done</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer YOUR-AUTH-TOKEN-HERE"</span>
+     <span class="s2">"https://api.chain.cloud:8080/users/456789/docs/ce7a3e4c5d80cb633c94623b/v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"blockchainType"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"infoLink"</span><span class="p">:</span><span class="s2">"https://live.blockcypher.com/btc/tx/2509e5b65ed362557fcf2104e89f3c2430ceecc6a3275556c1b966eb641fe092/"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2509e5b65ed362557fcf2104e89f3c2430ceecc6a3275556c1b966eb641fe092"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"docName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one.jpg"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"docSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231231"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"docDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-jan-2016"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"confirms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"block_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67421"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint gets document info. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.chain.cloud:8080/auth/users/:ID/docs/:DOC_HASH/v1</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Must be set to &#39;application/json&rsquo;</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Must be set to &#39;Bearer YOUR-AUTH-TOKEN-HERE&rsquo;</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Your user ID, that is returned while Authenticating</td>
+</tr>
+<tr>
+<td>DOC_HASH</td>
+<td>SHA-256 hash of your document</td>
+</tr>
+</tbody></table>
+
+          <h1 id="transactions">Transactions</h1>
+
+<h2 id="get-transaction-info">Get Transaction info</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">txHash</span> <span class="o">=</span> <span class="s1">'540c90560935d963c0d70e3798822fa49dd422c49e874f954ffd01c69d539d15'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://api.chain.cloud:8080/auth/users/'</span> <span class="o">+</span> <span class="nx">userId</span> <span class="o">+</span> <span class="s1">'/tx/'</span> <span class="o">+</span> <span class="nx">txHash</span> <span class="o">+</span> <span class="s1">'/v1'</span><span class="p">;</span>
+
+<span class="nx">getDataWithAuth</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">globalToken</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">statusCode</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">dataOut</span><span class="p">){</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">statusCode</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+
+     <span class="kd">var</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dataOut</span><span class="p">);</span>
+
+     <span class="c1">// Check doc info:</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">confirms</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+     <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">block_index</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+     <span class="nx">done</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer YOUR-AUTH-TOKEN-HERE"</span>
+     <span class="s2">"https://api.chain.cloud:8080/users/456789/tx/540c90560935d963c0d70e3798822fa49dd422c49e874f954ffd01c69d539d15/v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"confirms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"block_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67421"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint gets TX info. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.chain.cloud:8080/auth/users/:ID/tx/:TX_HASH/v1</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Must be set to &lsquo;application/json&rsquo;</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Must be set to &#39;Bearer YOUR-AUTH-TOKEN-HERE&rsquo;</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Your user ID, that is returned while Authenticating</td>
+</tr>
+<tr>
+<td>TX_HASH</td>
+<td>Transaction hash</td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<p>Chain.Cloud API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

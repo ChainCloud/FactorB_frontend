@@ -1,0 +1,74 @@
+<ng-include src="'signer/header.html'"></ng-include>
+
+<section id="cta">
+     <h1>
+          <a href="#/main">Chain.Cloud SIGNER</a>
+     </h1>
+
+     <p ng-if="errMsg.length" class="err-msg">{{errMsg}}</p>
+     <p>
+          <a ng-if="txLink.length" href="{{txLink}}" class="tx-info-link" target="_blank">Transaction info</a>
+     </p>
+
+     <h2>Document is in the BlockChain!</h2>
+     <div class="info-text">
+          <div class="row uniform 100%">
+               <div class="3u 12u(mobilep) info-block">
+                    <ul>
+                         <li ng-if="doc.docName">Name:</li>
+                         <li ng-if="doc.docSize">File Size:</li>
+                         <li ng-if="doc.docDate">File Date:</li>
+                         <li>DOC Hash: </li>
+                    </ul>
+               </div>
+
+               <div class="9u 12u(mobilep) data-block">
+                    <ul style="list-style-type:none;">
+                         <li>{{doc.docName}}</li>
+                         <li>{{doc.docSize}}</li>
+                         <li>{{doc.docDate}}</li>
+                         <li>{{doc.docHash}}</li>
+                    </ul>
+               </div>
+          </div>
+
+          <div class="row uniform 100%">
+               <div class="3u 12u(mobilep) info-block">
+                    <ul>
+                         <li>Blockchain Type:</li>
+                         <li>Block Index:</li>
+                         <li>Confirms:</li>
+                    </ul>
+               </div>
+
+               <div class="9u 12u(mobilep) data-block">
+                    <ul style="list-style-type:none;">
+                         <li>{{blockchainTypeToStr(doc.blockchainType)}}</li>
+                         <li>{{doc.block_index}}</li>
+                         <li>{{doc.confirms}}</li>
+                    </ul>
+               </div>
+          </div>
+
+          <div class="row uniform 100%">
+               <div class="3u 12u(mobilep) info-block">
+                    <ul>
+                         <li>Transaction Hash:</li>
+                    </ul>
+               </div>
+
+               <div class="9u 12u(mobilep) data-block">
+                    <ul style="list-style-type:none;">
+                         <li>
+                              <a class="tx-link" href="{{doc.infoLink}}" target="_blank">
+                                   <span> {{doc.txHash}}</span>
+                              </a>
+                         </li>
+                    </ul>
+               </div>
+          </div>
+     </div>
+</section>
+
+<ng-include src="'signer/footer.html'"></ng-include>
+
