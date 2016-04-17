@@ -15,7 +15,7 @@
                          name="fk1" 
                          id="fk1" 
                          ng-model="fkName" 
-                         placeholder="Название Факторинговой Компании" 
+                         placeholder="Название факторинговой компании" 
                          autofocus/>
 
                     <input 
@@ -58,7 +58,7 @@
                -->
 
                <!-- TODO -->
-               <p class="hash-value">{{hash}}</p>
+               <p class="hash-value" style="padding-left: 0px; margin-bottom: 1em;">{{hash}}</p>
 
                <div class="12u 12u(mobilep)">
                     <button 
@@ -73,8 +73,18 @@
                          </span>
                          <span>Добавить</span>
                     </button>
+
+                    <button 
+                         type="submit" 
+                         class="button fit"
+                         ng-click="onBatchAdd()">
+                         <span>
+                              <i class="fa fa-file"></i>
+                         </span>
+                         <span>Загрузить из файла</span>
+                    </button>
                </div>
-               <p>Данные никогда не передаются на нашу сторону. Мы получаем и храним только <a href="https://ru.wikipedia.org/wiki/Цепочка_блоков_транзакций">ХЭШ</a></p>
+               <p>Данные никогда не передаются на нашу сторону. Мы получаем и храним только их <a href="https://ru.wikipedia.org/wiki/Цепочка_блоков_транзакций">ХЭШ</a></p>
           </div>
      </form>
 </section>

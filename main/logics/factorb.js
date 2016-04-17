@@ -82,16 +82,25 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          console.log('RET STATUS: ',status);
                          console.log('RET DATA: ',data);
 
+                         //var w = window.open('', '_blank');
                          if(typeof(data.fkOut)=='undefined'){
                               console.log('OK');
 
                               var l = encodeURIComponent(data.link);
                               $window.location = '/#/success?link=' + l;
+
+                              //w.location = '/#/success?link=' + l;
                          }else{
                               console.log('Not OK: ' + data.fkOut);
                               $window.location = '/#/failure';
+
+                              //w.location = '/#/failure';
                          }
                     });
+               };
+
+               $scope.onBatchAdd = function(){
+                    $window.alert('Очень скоро мы сделаем это!'); 
                };
 
                $scope.calcHash = function(){
