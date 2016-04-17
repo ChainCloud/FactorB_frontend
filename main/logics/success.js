@@ -36,6 +36,8 @@ angular.module('factorb.controllers').controller('controllers.SuccessController'
 
                var params = $location.search();
                $scope.link = params.link;
+               $scope.hash = params.hash;
+
                console.log('Link: ' + $scope.link);
        }
      ]

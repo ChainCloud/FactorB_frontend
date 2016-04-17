@@ -87,7 +87,8 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               console.log('OK');
 
                               var l = encodeURIComponent(data.link);
-                              $window.location = '/#/success?link=' + l;
+                              $window.location = '/#/success?link=' + l 
+                                   + '&hash=' + $scope.hash;
 
                               //w.location = '/#/success?link=' + l;
                          }else{
