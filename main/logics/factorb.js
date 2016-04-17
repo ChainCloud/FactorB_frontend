@@ -89,13 +89,9 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               var l = encodeURIComponent(data.link);
                               $window.location = '/#/success?link=' + l 
                                    + '&hash=' + $scope.hash;
-
-                              //w.location = '/#/success?link=' + l;
                          }else{
                               console.log('Not OK: ' + data.fkOut);
                               $window.location = '/#/failure';
-
-                              //w.location = '/#/failure';
                          }
                     });
                };
