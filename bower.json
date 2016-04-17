@@ -28,6 +28,7 @@
     "angular-ui-router": "~0.2.15",
     "ng-file-upload": "~5.0.9",
     "angular-crypto": "*",
-    "wallet-address-validator": "*"
+    "wallet-address-validator": "*",
+    "font-awesome": "^4.6.1"
   }
 }
