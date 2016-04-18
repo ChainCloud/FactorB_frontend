@@ -1883,7 +1883,7 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0em 0;
 	}
 
      p.help-text {
@@ -3260,6 +3260,16 @@
 		#cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
 			color: inherit;
 		}
+
+          #cta h2 {
+               margin-bottom: 0px;
+          }
+
+          #cta h3 {
+               /*color: #0B8ED8;*/
+               color: rgb(232, 153, 128);
+               font-size: 12pt;
+          }
 
 		#cta form,
 		#cta form.address-form {
