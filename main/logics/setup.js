@@ -42,6 +42,15 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                     }
                }
           })
+          .state('news', {
+               url: '/news',
+               views: {
+                    '': {
+                         templateUrl: 'main/news.html',
+                         controller: 'controllers.NewsController'
+                    }
+               }
+          })
           .state('success', {
                url: '/success',
                views: {
