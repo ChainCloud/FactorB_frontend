@@ -55,6 +55,8 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     $scope.txLink = '';
 
                     $scope.hash = ''
+
+                    $scope.isUploading = true;
                };
 
                $scope.isValidInn = function(inn){
@@ -98,6 +100,47 @@ angular.module('factorb.controllers').controller('controllers.MainController',
 
                $scope.onBatchAdd = function(){
                     $window.alert('Очень скоро мы сделаем это!'); 
+               };
+
+               $scope.upload = function(files,photoIndex){
+                    console.log('Upload files: ' + files.length);
+
+                    if(files && files.length) {
+                         var file = files[0];
+                         console.log('Uploading file ' + file.name); 
+
+                         $scope.isUploading = true;
+                         var url = helpers.getServerUrl() + '/files/v1';
+
+                         Upload.upload({
+                              url: url,
+                              file: file
+                         }).progress(function (evt) {
+                              var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                              console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+
+                              // TODO:
+                              //ngProgress.set(progressPercentage);
+
+                              // TODO: show dialog
+                         }).success(function (data, status, headers, config) {
+                              console.log('File ' + config.file.name + ' uploaded. Response: ');
+                              console.log(data);
+                              console.log('Status: ' + status);
+
+                              // TODO:
+                              //ngProgress.complete();
+
+                              $scope.isUploading = false;
+
+                              // TODO: show dialog
+                              if(status==200){
+                                   $window.alert('Загружено успешно!'); 
+                              }else{
+                                   $window.alert('Ошибка!'); 
+                              }
+                         });
+                    }
                };
 
                $scope.calcHash = function(){

@@ -22,7 +22,7 @@ angular.module('factorb.services').factory('services.Helpers',[
             },
 
             getServerUrl: function(){
-                 var serverUrl = 'http://52.31.141.39:8080'; 
+                 var serverUrl = 'http://api.factorb.ru:8080'; 
                  return serverUrl;
             },
 

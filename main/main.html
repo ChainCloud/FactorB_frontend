@@ -80,7 +80,10 @@
                     <button 
                          type="submit" 
                          class="button fit"
-                         ng-click="onBatchAdd()">
+                         ngf-select 
+                         ngf-change="upload($files,$index)" 
+                         ngf-multiple="false" 
+                         ngf-accept="'text/csv'">
                          <span>
                               <i class="fa fa-file"></i>
                          </span>
