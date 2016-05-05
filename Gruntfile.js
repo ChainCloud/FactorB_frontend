@@ -338,7 +338,7 @@ module.exports = function (grunt) {
       },
 
       deployToServer: {
-        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/hackaton.pem" --progress dist/* ubuntu@52.31.141.39:/var/www/html/',
+        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/hackaton.pem" --progress dist/* ubuntu@api.factorb:/var/www/html/',
         options:
         {
              failOnError: true,
@@ -349,7 +349,7 @@ module.exports = function (grunt) {
       },
 
       deployToTest: {
-        command: 'rsync -avz -e "ssh -i /home/rus/.ssh/adaperio_frontend_test.pem" --progress dist/* ubuntu@52.30.25.37:/var/www/html/',
+        command: 'rsync -avz -e "ssh -i /home/rus/.ssh/adaperio_frontend_test.pem" --progress dist/* ubuntu@api.factorb.ru:/var/www/html/',
         options:
         {
              failOnError: true,
