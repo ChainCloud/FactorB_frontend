@@ -338,7 +338,7 @@ module.exports = function (grunt) {
       },
 
       deployToServer: {
-        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/hackaton.pem" --progress dist/* ubuntu@api.factorb:/var/www/html/',
+        command: 'rsync -avz -e "ssh -i /Users/tonykent/.ssh/hackaton.pem" --progress dist/* ubuntu@api.factorb.ru:/var/www/html/',
         options:
         {
              failOnError: true,
