@@ -3247,7 +3247,7 @@
 		/*background: #e89980;*/
 		background: #471F66;
 		color: #f9e5df;
-		padding: 3.5em 0 4em 0;
+		padding: 2.5em 0 1.5em 0;
 		text-align: center;
 	}
 
@@ -3303,6 +3303,32 @@
           #cta div.info-text li {
                text-align: left;
           }
+
+		#cta div.hash-example-block{
+			margin-bottom: 20px;
+               margin-left: auto;
+               margin-right: auto;
+			max-width: 100%;
+               background: #f0f0f0;
+		}
+		#cta div.hash-example-block p{
+               color: #000;
+          }
+	     .hash-example {
+               color: rgb(232, 153, 128);
+		}
+	     #cta button.main-button{
+               background: rgb(232, 153, 128);
+               color: #fff;
+		}
+
+		#cta div.question-text{
+			margin-bottom: 20px;
+               margin-left: auto;
+               margin-right: auto;
+			max-width: 80%;
+               text-align: left;
+		}
 
 		#cta input[type="submit"],
 		#cta input[type="reset"],

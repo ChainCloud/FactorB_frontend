@@ -17,7 +17,34 @@
                <li>Не предполагает покупку факторинговой компанией стороннего программного обеспечения и существенных затрат на реализацию.</li>
           </ul>
 
-          <p>Разработанная технология сверки не требует раскрытия никаких первичных данных, что исключает утечку коммерческой/банковской тайны из факторинговой компании/банка. Факторинговая компания может сверить весь свой портфель уступленных денежных требований без риска, что кто либо (включая сотрудников factorB) получат доступ к содержанию уступленных денежных требований. <a href="/#how">Как это работает?</a></p>
+          <p>Разработанная технология сверки не требует раскрытия никаких первичных данных, что исключает утечку коммерческой/банковской тайны из факторинговой компании/банка. Факторинговая компания может сверить весь свой портфель уступленных денежных требований без риска, что кто либо (включая сотрудников factorB) получат доступ к содержанию уступленных денежных требований.</p>
+
+          <form>
+               <div class="row uniform 50%">
+                    <div class="12u 12u(mobilep)">
+                         <button type="submit" class="button fit" ng-click="onHow()">
+                              <span>
+                                   <i class="fa fa-question"></i>
+                              </span>
+                              <span>Как это работает</span>
+                         </button>
+
+                         <button type="submit" class="button fit" ng-click="onTerms()">
+                              <span>
+                                   <i class="fa fa-map-o"></i>
+                              </span>
+                              <span>Условия использования</span>
+                         </button>
+
+                         <button type="submit" class="button fit" ng-click="onManual()">
+                              <span>
+                                   <i class="fa fa-book"></i>
+                              </span>
+                              <span>Инструкция</span>
+                         </button>
+                    </div>
+               </div>
+          </form>
           <hr>
 
           <div class="row uniform 100%">
@@ -35,7 +62,7 @@
           <form>
                <div class="row uniform 50%">
                     <div class="12u 12u(mobilep)">
-                         <button type="submit" class="button fit" ng-click="onGoToMain()">
+                         <button type="submit" class="button fit main-button" ng-click="onGoToMain()">
                               <span>
                                    <i class="fa fa-sign-in"></i>
                               </span>
