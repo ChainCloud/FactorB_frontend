@@ -2487,6 +2487,7 @@
 
 		ul li {
 			padding-left: 0.5em;
+               padding-bottom: 0.5em;
 		}
 
 		ul.alt {
@@ -3298,7 +3299,6 @@
                margin-left: auto;
                margin-right: auto;
 			max-width: 80%;
-               color: black;
 		}
 
           #cta div.info-text li {

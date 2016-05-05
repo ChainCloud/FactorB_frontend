@@ -29,10 +29,19 @@ angular.module('factorb',
 
 angular.module('factorb').config(function($stateProvider,$httpProvider,$parseProvider,$locationProvider,$urlRouterProvider) {
     // angular-ui-router stuff:
-    $urlRouterProvider.otherwise("/main");
+    $urlRouterProvider.otherwise("/landing");
 
     $stateProvider
           // when user is logged in -> show him main 'Admin page'
+          .state('landing', {
+               url: '/landing',
+               views: {
+                    '': {
+                         templateUrl: 'main/landing.html',
+                         controller: 'controllers.LandingController'
+                    }
+               }
+          })
           .state('main', {
                url: '/main',
                views: {
