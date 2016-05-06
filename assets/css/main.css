@@ -3316,6 +3316,8 @@
           }
 
           #cta div.right-column {
+               margin-top: 1.0em;
+               margin-left: 1.0em;
           }
 
 		#cta div.hash-example-block{
