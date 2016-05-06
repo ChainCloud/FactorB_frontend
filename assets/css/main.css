@@ -2485,8 +2485,9 @@
 	}
 
 		ul li {
-			padding-left: 0.5em;
+			/*padding-left: 0.5em;*/
                padding-bottom: 0.5em;
+               text-align: left;
 		}
 
 		ul.alt {
@@ -2729,7 +2730,12 @@
 		.button.fit {
 			display: block;
 			margin: 0 0 1em 0;
-			width: 100%;
+		}
+
+		.button.fit-small {
+			display: block;
+			margin: 0 0 1em 0;
+			width: 250px;
 		}
 
 		input[type="submit"].small,
@@ -3302,6 +3308,14 @@
 
           #cta div.info-text li {
                text-align: left;
+          }
+
+          #cta div.left-column {
+               margin-left: 1em;
+               margin-right: 0.5em;
+          }
+
+          #cta div.right-column {
           }
 
 		#cta div.hash-example-block{
