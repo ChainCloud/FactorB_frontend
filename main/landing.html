@@ -68,11 +68,17 @@
           <form>
                <div class="row uniform 50%">
                     <div class="12u 12u(mobilep)">
-                         <button type="submit" class="button fit main-button" ng-click="onGoToMain()">
+                         <button 
+                              type="submit" 
+                              class="button fit main-button"
+                              ngf-select 
+                              ngf-change="upload($files,$index)" 
+                              ngf-multiple="false" 
+                              ngf-accept="'text/csv'">
                               <span>
-                                   <i class="fa fa-sign-in"></i>
+                                   <i class="fa fa-file"></i>
                               </span>
-                              <span>Начать использовать сервис</span>
+                              <span>Загрузить файл</span>
                          </button>
                     </div>
                </div>

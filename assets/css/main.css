@@ -3336,6 +3336,8 @@
 	     #cta button.main-button{
                background: rgb(232, 153, 128);
                color: #fff;
+               margin-left: auto;
+               margin-right: auto;
 		}
 
 		#cta div.question-text{
