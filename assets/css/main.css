@@ -2735,8 +2735,12 @@
 		.button.fit-small {
 			display: block;
 			margin: 0 0 1em 0;
-			width: 250px;
+			width: 280px;
 		}
+
+          .logo-color{
+               color: #0B8ED8;
+          }
 
 		input[type="submit"].small,
 		input[type="reset"].small,
