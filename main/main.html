@@ -4,8 +4,15 @@
      <h1>
           <a href="#/landing">factor <strong>B</strong></a>
      </h1>
-     <h2>Пример хеширования денежного требования</h2>
+     <h2>Инструкция</h2>
+
+     <!--
      <h3>Используйте только для тестовых денежных транзакций</h3>
+     -->
+     <div class="info-text">
+          <p>Подготовьте CSV файл, в каждой строке которого должен содержаться хэш.</p>
+          <p>...далее инструкция...</p>
+     </div>
 
      <p ng-if="errMsg.length" class="err-msg">{{errMsg}}</p>
      <p>
@@ -14,6 +21,7 @@
 
      <form>
           <div class="row uniform 75%">
+               <!--
                <div id="input-div" class="12u 12u(mobilep)">
                     <input 
                          type="text" 
@@ -59,29 +67,25 @@
                          valid-number/>
                </div>
 
-               <!-- TODO: 
+               <p class="hash-value" style="padding-left: 0px; margin-bottom: 1em;">{{hash}}</p>
                -->
 
-               <!-- TODO -->
-               <p class="hash-value" style="padding-left: 0px; margin-bottom: 1em;">{{hash}}</p>
+               <div id="input-div" class="12u 12u(mobilep)">
+                    <!--<p>Мы пришлем отчет на указанный e-mail:</p>-->
+
+                    <input 
+                         type="text" 
+                         name="fk1" 
+                         id="fk1" 
+                         ng-model="userEmail" 
+                         placeholder="Ваш e-mail" 
+                         autofocus/>
+               </div>
 
                <div class="12u 12u(mobilep)">
                     <button 
                          type="submit" 
-                         class="button fit"
-                         ng-disabled="!isValidInn(inn1) || !isValidInn(inn2) || !date.length || !amount.length" 
-                         ng-click="onAdd()"
-                         >
-
-                         <span>
-                              <i class="fa fa-link"></i>
-                         </span>
-                         <span>Добавить</span>
-                    </button>
-
-                    <button 
-                         type="submit" 
-                         class="button fit"
+                         class="button fit main-button"
                          ngf-select 
                          ngf-change="upload($files,$index)" 
                          ngf-multiple="false" 
