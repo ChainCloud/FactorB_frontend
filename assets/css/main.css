@@ -2735,6 +2735,8 @@
 		.button.fit {
 			display: block;
 			margin: 0 0 1em 0;
+               width: 100%;
+               min-width: 275px;
 		}
 
 		.button.fit-small {
@@ -3218,7 +3220,8 @@
 	}
 
      .central-buttons {
-          padding: 3em;
+          padding-top: 3em;
+          padding-left: 0px;
      }
 
 		#footer .icons a {
@@ -3354,8 +3357,6 @@
 	     #cta button.main-button{
                background: rgb(39, 162, 219);
                color: #fff;
-               margin-left: auto;
-               margin-right: auto;
 		}
 	     #cta button.main-button:hover{
                background: rgb(69, 192, 249);
@@ -3849,6 +3850,7 @@
 
 		/* Footer */
 
+               /*
 			#footer {
 				padding: 4em 0;
 			}
@@ -3860,6 +3862,7 @@
 					margin-left: 0;
 					padding-left: 0;
 				}
+               */
 
 	}
 
