@@ -2,7 +2,7 @@
 
 <section id="cta">
      <h1>
-          <a href="#/landing">factor <strong>B</strong></a>
+          <a href="#/landing"><span class="first-logo-color">factor</span><strong>B</strong></a>
      </h1>
      <h2>Инструкция</h2>
 
@@ -10,8 +10,10 @@
      <h3>Используйте только для тестовых денежных транзакций</h3>
      -->
      <div class="info-text">
-          <p>Подготовьте CSV файл, в каждой строке которого должен содержаться хэш.</p>
-          <p>...далее инструкция...</p>
+          <p>1 - Подготовьте CSV файл, в каждой строке которого должен содержаться хэш.</p>
+          <p>2 - ...</p>
+          <p>3 - ...</p>
+          <p>4 - ...</p>
      </div>
 
      <p ng-if="errMsg.length" class="err-msg">{{errMsg}}</p>
@@ -19,6 +21,7 @@
           <a ng-if="txLink.length" href="{{txLink}}" class="tx-info-link" target="_blank">Transaction info</a>
      </p>
 
+     <h2>Загрузка</h2>
      <form>
           <div class="row uniform 75%">
                <!--
