@@ -77,7 +77,7 @@
                     <!--<p>Мы пришлем отчет на указанный e-mail:</p>-->
 
                     <input 
-                         type="text" 
+                         type="email" 
                          name="fk1" 
                          id="fk1" 
                          ng-model="userEmail" 
@@ -89,6 +89,7 @@
                     <button 
                          type="submit" 
                          class="button fit main-button"
+                         ng-disabled="!userEmail"
                          ngf-select 
                          ngf-change="upload($files,$index)" 
                          ngf-multiple="false" 

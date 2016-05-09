@@ -131,7 +131,7 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          console.log('Uploading file ' + file.name); 
 
                          $scope.isUploading = true;
-                         var url = helpers.getServerUrl() + '/files/v1';
+                         var url = helpers.getServerUrl() + '/files/v1?email=' + $scope.userEmail;
 
                          Upload.upload({
                               url: url,
