@@ -1,6 +1,6 @@
 {
   "name": "ChainCloud",
-  "version": "0.0.58",
+  "version": "0.0.59",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-shell": "*",
