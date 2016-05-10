@@ -1,3 +1,20 @@
+angular.module('factorb.controllers').config(['ngDialogProvider', function (ngDialogProvider) {
+     ngDialogProvider.setDefaults({
+          className: 'ngdialog-theme-factorb',
+          plain: false,
+          showClose: true,
+          closeByDocument: true,
+          closeByEscape: true,
+          appendTo: false
+     });
+}]);
+
+angular.module('factorb.controllers').controller('UploadCompleteDlg', function ($scope, $window, ngDialog) {
+     $scope.onOk = function(){
+          ngDialog.close();
+          $route.reload();
+     };
+});
 
 angular.module('factorb.controllers').directive('validNumber', function() {
      return {
@@ -151,9 +168,14 @@ angular.module('factorb.controllers').controller('controllers.MainController',
 
                               $scope.isUploading = false;
 
-                              // TODO: show dialog
+                              // show dialog
                               if(status==200){
-                                   $window.alert('Загружено успешно!'); 
+                                   ngDialog.open({
+                                        template: 'uploadCompleteDlg',
+                                        controller: 'UploadCompleteDlg',
+                                        className: 'ngdialog-theme-factorb',
+                                        scope: $scope
+                                   });
                               }else{
                                    $window.alert('Ошибка!'); 
                               }

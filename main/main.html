@@ -149,8 +149,7 @@
                          id="fk1" 
                          ng-model="userEmail" 
                          ng-disabled="isUploading"
-                         placeholder="Ваш e-mail" 
-                         autofocus/>
+                         placeholder="Ваш e-mail"/>
                </div>
 
                <div class="12u 12u(mobilep)">
@@ -171,6 +170,15 @@
           </div>
      </form>
 </section>
+
+<script type="text/ng-template" id="uploadCompleteDlg">
+     <div class="ngdialog-content">
+          <p>Загрузка завершена успешно!</p>
+     </div>
+     <div class="ngdialog-buttons">
+          <button type="button" class="action-btn" ng-click="onOk()">Ок</button>
+     </div>
+</script>
 
 <ng-include src="'main/footer.html'"></ng-include>
 
