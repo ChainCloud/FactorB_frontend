@@ -3326,6 +3326,18 @@
 			max-width: 80%;
 		}
 
+		#cta div.instruction-text{
+			margin-bottom: 2em; 
+               margin-left: auto;
+               margin-right: auto;
+			max-width: 80%;
+               text-align: left;
+		}
+
+		#cta div.instruction-text p{
+               margin-bottom: 0.5em;
+          }
+
           #cta div.info-text li {
                text-align: left;
           }
