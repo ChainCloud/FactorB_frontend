@@ -3338,6 +3338,14 @@
                margin-bottom: 0.5em;
           }
 
+          .first-cell{
+               text-align: left;
+          }
+
+          .value-cell{
+               text-align: left;
+          }
+
           #cta div.info-text li {
                text-align: left;
           }
@@ -3366,6 +3374,11 @@
                /*color: rgb(232, 153, 128);*/
                color: rgb(6, 107, 152);
 		}
+          .example-first-column{
+               font-weight: 600;
+          }
+
+          /* ------------------------------ */
 	     #cta button.main-button{
                background: rgb(39, 162, 219);
                color: #fff;

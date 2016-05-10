@@ -10,11 +10,75 @@
      <h3>Используйте только для тестовых денежных транзакций</h3>
      -->
      <div class="instruction-text">
-          <p>1 - Сформируйте исходный файл со столбцами вида ИНН1, ИНН2, Дата, Сумма....<br> Данные должны иметь кодировку UTF8. </p>
-          <p>2 - Посчитайте SHA256 хэш для каждой строки. Поля объединяются следующим образом: ИНН1+ИНН2+Дата+Сумма (без пробелов).<br>Пример EXCEL файла: <a href="excel.xls">здесь</a></p>
-          <p>3 - Скопируйте полученный столбец с SHA256 хэшами в отдельный файл формата CSV (каждый хэш с отдельной строки). Все остальные (исходные) данные не должны быть представлены в этом файле, чтобы избежать их раскрытие.</p>
-          <p>4 - Загрузите полученный файл в нашу систему.</p>
-          <p>5 - Через некоторое время вы получите отчет на указанный e-mail адрес.</p>
+          <p>1 - Сформируйте исходный файл со столбцами: <strong>НомерДокумента, ИНН1, ИНН2, Дата, Сумма</strong>.</p>
+     </div>
+
+     <h3>Формат данных:</h3>
+     <br>
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>Кодировка файла</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>UTF8</p>
+          </div>
+     </div>
+
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>НомерДокумента</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>Только цифры, латинские буквы, кириллические символы</p>
+          </div>
+     </div>
+
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>ИНН1 - ИНН продавца по товарной накладной</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>8 или 10 цифр без пробелов</p>
+          </div>
+     </div>
+
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>ИНН2 - ИНН плательщика по товарной накладной</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>8 или 10 цифр без пробелов</p>
+          </div>
+     </div>
+
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>Дата</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>Дата в формате 01.12.2016</p>
+          </div>
+     </div>
+
+     <div class="row uniform 100% hash-example-block">
+          <div class="6u 12u(mobilep) example-first-column">
+               <p>Сумма</p>
+          </div>
+          <div class="6u 12u(mobilep)">
+               <p>Всего по накладной, сумма с учетом НДС, руб.коп</p>
+          </div>
+     </div>
+     <br>
+
+     <div class="instruction-text">
+          <p>2 - Объедините поля следующим образом: НомерДокумента+ИНН1+ИНН2+Дата+Сумма (без пробелов).<br>Порядок данных критичен!</p>
+          <p>3 - Посчитайте SHA256 хэш для полученной строки. Excel файл с примером (см. ниже) содержит VBA-функцию SHA256function. </p>
+          <p>4 - Скопируйте полученный столбец с SHA256 хэшами в отдельный файл формата CSV (каждый хэш с отдельной строки). Все остальные (исходные) данные не должны быть представлены в этом файле, чтобы избежать их раскрытие.</p>
+          <p>5 - Загрузите полученный файл в нашу систему.</p>
+          <p>6 - Через некоторое время вы получите отчет на указанный e-mail адрес.</p>
+
+          <p>Пример Excel файла: <a href="main/example.xls">здесь</a></p>
+          <p>Пример Полученного файла: <a href="main/out.csv">здесь</a></p>
      </div>
 
      <p ng-if="errMsg.length" class="err-msg">{{errMsg}}</p>
