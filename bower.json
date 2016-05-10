@@ -29,6 +29,7 @@
     "ng-file-upload": "~5.0.9",
     "angular-crypto": "*",
     "wallet-address-validator": "*",
-    "font-awesome": "^4.6.1"
+    "font-awesome": "^4.6.1",
+    "ngprogress": "1.0.7"
   }
 }

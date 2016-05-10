@@ -77,6 +77,8 @@
           <p>5 - Загрузите полученный файл в нашу систему.</p>
           <p>6 - Через некоторое время вы получите отчет на указанный e-mail адрес.</p>
 
+          <hr>
+
           <p>Пример Excel файла: <a href="main/example.xls">здесь</a></p>
           <p>Пример Полученного файла: <a href="main/out.csv">здесь</a></p>
      </div>
@@ -146,6 +148,7 @@
                          name="fk1" 
                          id="fk1" 
                          ng-model="userEmail" 
+                         ng-disabled="isUploading"
                          placeholder="Ваш e-mail" 
                          autofocus/>
                </div>
@@ -154,7 +157,7 @@
                     <button 
                          type="submit" 
                          class="button fit main-button"
-                         ng-disabled="!userEmail"
+                         ng-disabled="!userEmail || isUploading"
                          ngf-select 
                          ngf-change="upload($files,$index)" 
                          ngf-multiple="false" 
@@ -165,11 +168,6 @@
                          <span>Загрузить файл</span>
                     </button>
                </div>
-
-               <!--
-               <p>Сервис проверяет дублирование одного денежного требования в портфелях разных факторинговых компаний</p>
-               <p>Данные не передаются на нашу сторону. Мы получаем и храним только их <a href="https://ru.wikipedia.org/wiki/Цепочка_блоков_транзакций">ХЭШ</a></p>
-               -->
           </div>
      </form>
 </section>

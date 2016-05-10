@@ -17,6 +17,7 @@ angular.module('factorb',
         'ngAnimate',
         'ngDialog',
         'ngCookies',
+        'ngProgress',
 
         'chart.js',
         'ngFileUpload',

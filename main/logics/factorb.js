@@ -29,7 +29,6 @@ angular.module('factorb.controllers').directive('validNumber', function() {
      };
 });
 
-
 angular.module('factorb.controllers').controller('controllers.MainController',
     [
         '$scope',
@@ -38,6 +37,7 @@ angular.module('factorb.controllers').controller('controllers.MainController',
         '$location',
         '$timeout',
         'ngDialog',
+        'ngProgress',
         '$cookies',
         '$q',
 
@@ -46,7 +46,7 @@ angular.module('factorb.controllers').controller('controllers.MainController',
         'services.Api',
         'services.Helpers',
 
-        function($scope,$rootScope,$window,$location,$timeout,ngDialog,$cookies,$q,Upload,api,helpers)
+        function($scope,$rootScope,$window,$location,$timeout,ngDialog,ngProgress,$cookies,$q,Upload,api,helpers)
         {
                $scope.reset = function () {
                     $scope.setFocus = true;
@@ -56,7 +56,7 @@ angular.module('factorb.controllers').controller('controllers.MainController',
 
                     $scope.hash = ''
 
-                    $scope.isUploading = true;
+                    $scope.isUploading = false;
                };
 
                $scope.isValidInn = function(inn){
@@ -131,8 +131,9 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          console.log('Uploading file ' + file.name); 
 
                          $scope.isUploading = true;
-                         var url = helpers.getServerUrl() + '/files/v1?email=' + $scope.userEmail;
+                         ngProgress.start();
 
+                         var url = helpers.getServerUrl() + '/files/v1?email=' + $scope.userEmail;
                          Upload.upload({
                               url: url,
                               file: file
@@ -140,17 +141,13 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                               console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
 
-                              // TODO:
-                              //ngProgress.set(progressPercentage);
-
-                              // TODO: show dialog
+                              ngProgress.set(progressPercentage);
                          }).success(function (data, status, headers, config) {
                               console.log('File ' + config.file.name + ' uploaded. Response: ');
                               console.log(data);
                               console.log('Status: ' + status);
 
-                              // TODO:
-                              //ngProgress.complete();
+                              ngProgress.complete();
 
                               $scope.isUploading = false;
 
