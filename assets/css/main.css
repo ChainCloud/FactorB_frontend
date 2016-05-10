@@ -3366,6 +3366,7 @@
                margin-right: auto;
 			max-width: 100%;
                background: #f0f0f0;
+               text-align: center;
 		}
 		#cta div.hash-example-block p{
                color: #000;
@@ -3376,6 +3377,11 @@
 		}
           .example-first-column{
                font-weight: 600;
+               text-align: right;
+          }
+
+          .example-second-column{
+               text-align: left;
           }
 
           /* ------------------------------ */
