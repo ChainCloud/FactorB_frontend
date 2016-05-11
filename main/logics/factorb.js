@@ -57,13 +57,14 @@ angular.module('factorb.controllers').controller('controllers.MainController',
         'ngProgress',
         '$cookies',
         '$q',
+        '$http',
 
         'Upload',
 
         'services.Api',
         'services.Helpers',
 
-        function($scope,$rootScope,$window,$location,$timeout,ngDialog,ngProgress,$cookies,$q,Upload,api,helpers)
+        function($scope,$rootScope,$window,$location,$timeout,ngDialog,ngProgress,$cookies,$q,$http,Upload,api,helpers)
         {
                $scope.reset = function () {
                     $scope.setFocus = true;
@@ -137,8 +138,32 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                /////////////////////////////////////////
                //////// START HERE:
                $scope.reset();
-
                console.log('MAIN controller loading...');
+
+               $scope.getInstruction = function(){
+                    var url = helpers.getServerUrl() + '/instruction/v1'
+                         + '?email=' + $scope.userEmail
+                         + '&name=' + $scope.name
+                         + '&lastName=' + $scope.lastName
+                         + '&phone=' + $scope.phone
+
+                     $http({
+                         method:"GET",
+                         url: url
+                     })
+                         .success(function (data, status, headers, config) {
+                              ngDialog.open({
+                                   template: 'getInstructionSuccess',
+                                   controller: 'UploadCompleteDlg',
+                                   className: 'ngdialog-theme-factorb',
+                                   scope: $scope
+                              });
+                         })
+                         .error(function (data, status, headers, config) {
+                              console.log('Can not get instruction');
+                              $window.alert('Ошибка!'); 
+                         });
+               };
 
                $scope.upload = function(files,photoIndex){
                     console.log('Upload files: ' + files.length);
@@ -177,6 +202,7 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                                         scope: $scope
                                    });
                               }else{
+                                   console.log('Can not upload file');
                                    $window.alert('Ошибка!'); 
                               }
                          });

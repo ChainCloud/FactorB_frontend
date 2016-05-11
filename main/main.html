@@ -99,9 +99,6 @@
                          class="button fit main-button"
                          ng-disabled="!name || !lastName || !phone || !userEmail || isUploading"
                          ng-click="getInstruction()">
-                         <span>
-                              <i class="fa fa-file"></i>
-                         </span>
                          <span>Отправить запрос на инструкцию</span>
                     </button>
 
@@ -116,7 +113,7 @@
                          <span>
                               <i class="fa fa-file"></i>
                          </span>
-                         <span>Загрузить файл</span>
+                         <span>Загрузить сводный файл</span>
                     </button>
                </div>
           </div>
@@ -126,6 +123,15 @@
 <script type="text/ng-template" id="uploadCompleteDlg">
      <div class="ngdialog-content">
           <p>Загрузка завершена успешно!</p>
+     </div>
+     <div class="ngdialog-buttons">
+          <button type="button" class="action-btn" ng-click="onOk()">Ок</button>
+     </div>
+</script>
+
+<script type="text/ng-template" id="getInstructionSuccess">
+     <div class="ngdialog-content">
+          <p>Через некоторе время вы получите инструкцию на свой e-mail адрес!</p>
      </div>
      <div class="ngdialog-buttons">
           <button type="button" class="action-btn" ng-click="onOk()">Ок</button>
