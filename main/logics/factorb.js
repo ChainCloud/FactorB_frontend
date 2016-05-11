@@ -147,11 +147,14 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          + '&lastName=' + $scope.lastName
                          + '&phone=' + $scope.phone
 
+                     $scope.isUploading = true;
                      $http({
                          method:"GET",
                          url: url
                      })
                          .success(function (data, status, headers, config) {
+                              $scope.isUploading = false;
+
                               ngDialog.open({
                                    template: 'getInstructionSuccess',
                                    controller: 'UploadCompleteDlg',
@@ -160,6 +163,8 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                               });
                          })
                          .error(function (data, status, headers, config) {
+                              $scope.isUploading = false;
+
                               console.log('Can not get instruction');
                               $window.alert('Ошибка!'); 
                          });
