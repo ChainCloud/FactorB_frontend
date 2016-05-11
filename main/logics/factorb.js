@@ -145,7 +145,9 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          + '?email=' + $scope.userEmail
                          + '&name=' + $scope.name
                          + '&lastName=' + $scope.lastName
-                         + '&phone=' + $scope.phone
+                         + '&company=' + $scope.company
+                         + '&position=' + $scope.position
+                         + '&phone=' + $scope.phone;
 
                      $scope.isUploading = true;
                      $http({

@@ -79,6 +79,20 @@
 
                     <input 
                          type="text" 
+                         name="position" 
+                         ng-model="position" 
+                         ng-disabled="isUploading"
+                         placeholder="Должность"/>
+
+                    <input 
+                         type="text" 
+                         name="company" 
+                         ng-model="company" 
+                         ng-disabled="isUploading"
+                         placeholder="Компания"/>
+
+                    <input 
+                         type="text" 
                          name="phone" 
                          ng-model="phone" 
                          ng-disabled="isUploading"
@@ -97,7 +111,7 @@
                     <button 
                          type="submit" 
                          class="button fit main-button"
-                         ng-disabled="!name || !lastName || !phone || !userEmail || isUploading"
+                         ng-disabled="!name || !lastName || !phone || !userEmail || !position || !company || isUploading"
                          ng-click="getInstruction()">
                          <span>Отправить запрос на инструкцию</span>
                     </button>
@@ -105,7 +119,7 @@
                     <button 
                          type="submit" 
                          class="button fit main-button"
-                         ng-disabled="!name || !lastName || !phone || !userEmail || isUploading"
+                         ng-disabled="!name || !lastName || !phone || !userEmail || !position || !company || isUploading"
                          ngf-select 
                          ngf-change="upload($files,$index)" 
                          ngf-multiple="false" 
