@@ -75,6 +75,13 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                     $scope.hash = ''
 
                     $scope.isUploading = false;
+
+                    $scope.userEmail = '';
+                    $scope.name = '';
+                    $scope.lastName = '';
+                    $scope.company = '';
+                    $scope.position = '';
+                    $scope.phone = '';
                };
 
                $scope.isValidInn = function(inn){
@@ -163,6 +170,8 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                                    className: 'ngdialog-theme-factorb',
                                    scope: $scope
                               });
+                              
+                              $scope.reset();
                          })
                          .error(function (data, status, headers, config) {
                               $scope.isUploading = false;
