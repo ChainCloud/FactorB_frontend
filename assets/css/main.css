@@ -1896,8 +1896,11 @@
           color: rgb(39, 162, 219);
 		font-weight: 300;
 		line-height: 1em;
-		margin: 0 0 0.5em 0;
 	}
+
+     h1,h3,h4,h5,h6{
+		margin: 0 0 0.5em 0;
+     }
 
      .first-logo-color{
           /*color: #ccc;*/
@@ -1918,7 +1921,6 @@
 	h2 {
 		font-size: 2.25em;
 		line-height: 1.5em;
-		letter-spacing: -0.035em;
 	}
 
 	h3 {
@@ -3287,7 +3289,7 @@
 		}
 
           #cta h2 {
-               margin: 0 0 0.5em 0;
+               margin: 0 0 1.0em 0;
           }
 
           #cta h3 {
