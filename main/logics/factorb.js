@@ -191,7 +191,14 @@ angular.module('factorb.controllers').controller('controllers.MainController',
                          $scope.isUploading = true;
                          ngProgress.start();
 
-                         var url = helpers.getServerUrl() + '/files/v1?email=' + $scope.userEmail;
+                         var url = helpers.getServerUrl() + '/files/v1'
+                              + '?email=' + $scope.userEmail
+                              + '&name=' + $scope.name
+                              + '&lastName=' + $scope.lastName
+                              + '&company=' + $scope.company
+                              + '&position=' + $scope.position
+                              + '&phone=' + $scope.phone;
+
                          Upload.upload({
                               url: url,
                               file: file
