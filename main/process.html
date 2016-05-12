@@ -9,6 +9,23 @@
      <div class="info-text">
           <p>Состояние: {{state}}</p>
      </div>
+
+     <div ng-if="data.state==2">
+          <hr>
+          <p>Имя: {{data.name}}</p>
+          <p>Фамилия: {{data.lastName}}</p>
+          <p>Компания: {{data.company}}</p>
+          <p>Должность: {{data.position}}</p>
+          <p>Тел: {{data.phone}}</p>
+          <p>E-mail: {{data.email}}</p>
+          <br>
+          <p>Файл: {{data.fileName}}</p>
+          <p>Размер: {{data.fileSize}} байт</p>
+          <br>
+          <p>Обработано записей: {{data.totalItemsProcessed}}</p>
+          <p>Ошибочных записей: {{data.badItems.length}}</p>
+          <p>Дублей: {{data.duplicateItems.length}}</p>
+     </div>
 </section>
 
 <ng-include src="'main/footer.html'"></ng-include>
