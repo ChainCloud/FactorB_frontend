@@ -90,6 +90,16 @@ angular.module('factorb').config(function($stateProvider,$httpProvider,$parsePro
                     },
                }
           })
+          // Start task processing
+          .state('process', {
+               url: '/process',
+               views: {
+                    '': {
+                         templateUrl: 'main/process.html',
+                         controller: 'controllers.ProcessController'
+                    }
+               }
+          })
           .state('failure', {
                url: '/failure',
                views: {
