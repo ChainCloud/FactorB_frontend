@@ -25,6 +25,17 @@
           <p><strong>Обработано записей</strong>: {{data.totalItemsProcessed}}</p>
           <p><strong>Ошибочных записей</strong>: {{data.badItems.length}}</p>
           <p><strong>Дублей</strong>: {{data.duplicateItems.length}}</p>
+
+          <hr>
+          <h3>Дубли: </h3>
+          <div ng-repeat="d in data.duplicateItems">
+               <p>{{d.hash}}</p>
+
+               <div ng-repeat="o in d.other">
+                    <p>Компания - {{o.company}}</p>
+               </div>
+               <br>
+          </div>
      </div>
 </section>
 
