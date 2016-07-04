@@ -12,7 +12,7 @@ angular.module('factorb.controllers').config(['ngDialogProvider', function (ngDi
 angular.module('factorb.controllers').controller('UploadCompleteDlg', function ($scope, $window, ngDialog) {
      $scope.onOk = function(){
           ngDialog.close();
-          $route.reload();
+          //$route.reload();
      };
 });
 
