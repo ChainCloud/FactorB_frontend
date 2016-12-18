@@ -7,5 +7,5 @@
 * Backend development
 * Blockchain technology advising
 
-![Screenshot1](https://i.imgsafe.org/67648b9e26.png)
-![Screenshot2](https://i.imgsafe.org/6764900c39.png)
+![Screenshot1](https://i.imgsafe.org/6770ad1e98.png)
+![Screenshot2](https://i.imgsafe.org/6770b4e2ea.png)
